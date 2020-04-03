@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>播放器</title>
     <!-- PC导入的videojs是7.0版本以上的，集成VHS协议库，可播放HLS流媒体视频 -->
     <link href="css/video-js.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
     <div>
         请输入流地址: <input type="text"
                        v-model="videoSrc"
-                       size="100"
+                       size="88"
                        placeholder="比如：http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8"/>
         <button @click="selectVideo();">点击载入</button>
     </div>
@@ -30,8 +30,9 @@
         <button @click="selectCCTV6();">CCTV6</button>
     </div>
     <video id="myvideo"
-           class="video-js vjs-default-skin vjs-big-play-centered"
-           width=960 height=540
+           class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+           width=960
+           height=540
            preload="auto"
            autoplay
            controls
@@ -50,7 +51,7 @@
         },
         methods: {
             selectVideo() {
-                const videoPlayer=videojs('myvideo');
+                const videoPlayer=videojs('myvideo',{fluid: true});
                 videoPlayer.src({
                     src: this.videoSrc,
                 });
