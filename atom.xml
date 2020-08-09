@@ -5,9 +5,9 @@
   <subtitle>网罗全球要闻，关注自媒体趣事</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://focuson.top/"/>
   <updated>2020-08-09T00:46:20.549Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://focuson.top/</id>
   
   <author>
     <name>Lucky！</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Make a wish</title>
-    <link href="http://yoursite.com/2020/02/20/launchissue/"/>
-    <id>http://yoursite.com/2020/02/20/launchissue/</id>
+    <link href="https://focuson.top/2020/02/20/launchissue/"/>
+    <id>https://focuson.top/2020/02/20/launchissue/</id>
     <published>2020-02-19T16:00:00.000Z</published>
     <updated>2020-08-09T00:46:20.549Z</updated>
     
@@ -36,7 +36,7 @@
     </summary>
     
     
-      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="https://focuson.top/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
