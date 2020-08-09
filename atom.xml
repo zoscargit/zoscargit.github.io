@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>聚焦自媒体平台</title>
+  <title>聚焦新媒体平台</title>
   
-  <subtitle>up主聚集地</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <subtitle>网罗全球要闻，关注自媒体趣事</subtitle>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="https://focusontop.gitee.io/blog/"/>
-  <updated>2020-08-08T11:13:21.905Z</updated>
-  <id>https://focusontop.gitee.io/blog/</id>
+  <link href="http://yoursite.com/"/>
+  <updated>2020-08-09T00:46:20.549Z</updated>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Lucky！</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Make a wish</title>
-    <link href="https://focusontop.gitee.io/blog/2020/02/20/launchissue/"/>
-    <id>https://focusontop.gitee.io/blog/2020/02/20/launchissue/</id>
-    <published>2020-02-20T05:10:13.000Z</published>
-    <updated>2020-08-08T11:13:21.905Z</updated>
+    <link href="http://yoursite.com/2020/02/20/launchissue/"/>
+    <id>http://yoursite.com/2020/02/20/launchissue/</id>
+    <published>2020-02-19T16:00:00.000Z</published>
+    <updated>2020-08-09T00:46:20.549Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/wish.png" alt=""></p>]]></content>
     
@@ -36,7 +36,7 @@
     </summary>
     
     
-      <category term="杂谈" scheme="https://focusontop.gitee.io/blog/categories/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
