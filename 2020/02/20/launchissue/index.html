@@ -121,9 +121,14 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-player">
+        <li class="menu-item menu-item-livechina">
 
-    <a href="/player/" rel="section"><i class="fa fa-fw fa-s15"></i>播放器</a>
+    <a href="/livechina/" rel="section"><i class="fa fa-fw fa-video-camera"></i>直播中国</a>
+
+  </li>
+        <li class="menu-item menu-item-messageboard">
+
+    <a href="/messageboard/" rel="section"><i class="fa fa-fw fa-envelope-o"></i>留言板</a>
 
   </li>
   </ul>
@@ -240,6 +245,11 @@
 
           </div>
           
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81MTI4NS8yNzc2Ng=="></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -405,6 +415,22 @@
   
 
   
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 </body>
 </html>
