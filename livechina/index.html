@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"focuson.top","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content=".search input,   .banner {     width: 100%;   }   .broadcast .choice div,   .broadcast .banner img{     margin: 0;     padding: 0;   }   .choice {     background-color: crimson;   }   .choice">
+  <meta name="description" content=".search input,   .banner {     width: 100%;   }   .broadcast .choice div,   .broadcast .banner img{     margin: 0;     padding: 0;   }   .choice {     background-color: crimson;   }   .choic">
 <meta property="og:type" content="website">
 <meta property="og:title" content="在这里，你可看到中国热门景区的实时画面，江山如画尽收眼底，此刻开启你的云端旅游，放松一下吧！">
 <meta property="og:url" content="https://focuson.top/livechina/index.html">
 <meta property="og:site_name" content="聚焦新媒体平台">
-<meta property="og:description" content=".search input,   .banner {     width: 100%;   }   .broadcast .choice div,   .broadcast .banner img{     margin: 0;     padding: 0;   }   .choice {     background-color: crimson;   }   .choice">
+<meta property="og:description" content=".search input,   .banner {     width: 100%;   }   .broadcast .choice div,   .broadcast .banner img{     margin: 0;     padding: 0;   }   .choice {     background-color: crimson;   }   .choic">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://focuson.top/livechina/images/banner.jpg">
 <meta property="article:published_time" content="2020-08-10T14:40:08.000Z">
-<meta property="article:modified_time" content="2020-08-11T07:26:55.527Z">
+<meta property="article:modified_time" content="2020-08-13T08:05:01.933Z">
 <meta property="article:author" content="Lucky！">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://focuson.top/livechina/images/banner.jpg">
@@ -180,10 +180,11 @@
       <div class="post-body">
           
 <link href="css/video-js.min.css" rel="stylesheet" type="text/css">
-
+<script src="js/axios.min.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/video.min.js"></script>
 <script src="js/videojs-flash.min.js"></script>
+
 <style>
   .search input,
   .banner {
@@ -206,11 +207,29 @@
     <img src="images/banner.jpg" alt="中国风景">
   </div>
   <div class="choice">
-    <div >景区直播:</div>
-    <button @click="selectLive()">全景中国</button>
-    <button @click="selectYYQ()">月牙泉</button>
-    <button @click="selectZY()">张掖</button>
-    <button @click="selectEMS()">峨眉山</button>
+    <div >景区直播:
+      <button @click="select('qjzg')">全景中国</button>
+    </div>
+    <div >大西北:
+      <button @click="select('yyq')">月牙泉-鸣沙山</button>
+      <button @click="select('zy')">张掖-丹霞地貌</button>
+    </div> 
+    <div >峨眉山:
+      <button @click="select('yhrc')">云海日出</button>
+      <button @click="select('ggxs')">远眺贡嘎雪山</button>
+      <button @click="select('jd')">金顶</button>
+      <button @click="select('wfd')">远眺万佛顶</button>
+    </div> 
+	<div>云南丽江:
+	  <button @click="select('ylxs1')">玉龙雪山1</button>
+	  <button @click="select('ylxs2')">玉龙雪山2</button>
+	  <button @click="select('ylxs3')">玉龙雪山3</button>
+	  <button @click="select('yyh')">玉液湖</button>
+	  <button @click="select('dyhx')">大研花巷</button>
+	  <button @click="select('dsc')">大水车</button>
+	  <button @click="select('ljgc')">丽江古城</button>
+	</div>
+
   </div>
   <!-- 央视电视台的流在本地可以播放，部署到pages上后，chrome，firefox就打不开，报错VIDEOJS: ERROR: (CODE:4 MEDIA_ERR_SRC_NOT_SUPPORTED) The media could not be loaded, either because the server or network failed or because the format is not supported.
 哪位大佬知道是什么原因啊，留言帮忙解决下，哈哈-->  
@@ -249,43 +268,59 @@
         el: "#app",
         data: {
             videoSrc: '',
+            scenicArea: {
+              qjzg: '',  //全景中国
+              ylxs1: '', //玉龙雪山1
+              ylxs2: '', //白沙远眺玉龙雪山
+              ylxs3: '', //万古楼遥望玉龙雪山
+              yyh: '', //玉液湖
+              dyhx: '', //大研花巷观景
+              dsc: '', //大水车
+              ljgc: '', //狮子山鸟瞰丽江古城
+              yyq: '', //月牙泉-鸣沙山
+              zy: '', //张掖-丹霞地貌
+              yhrc: '', //云海日出
+              ggxs: '', //远眺贡嘎雪山
+              jd: '', //金顶
+              wfd: '' //远眺万佛顶
+            },
             videoPlayer: undefined
         },
         created() {
-
+		  
         },
         mounted: function () {
-            this.initVideo();
+          this.getScenicArea();
+          this.initVideo();
         },
         methods: {
             initVideo() {
-                this.videoPlayer = videojs('myVideo', {fluid: true});
+              this.videoPlayer = videojs('myVideo', {fluid: true});
             },
             playVideo() {
-                this.videoPlayer.src({
-                    src: this.videoSrc,
-                });
-                this.videoPlayer.play();
+              this.videoPlayer.src({
+                  src: this.videoSrc,
+              });
+              this.videoPlayer.play();
             },
             selectInput() {
-                this.videoSrc = this.$refs.inputVideoSrc.value;
-                this.playVideo();
+              this.videoSrc = this.$refs.inputVideoSrc.value;
+              this.playVideo();
             },
-            selectLive() {
-                this.videoSrc = "https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8";
-                this.playVideo();
+            getScenicArea() {
+              axios.get("scenicArea.json")
+                .then(response=>{
+                this.scenicArea=response.data;
+            })
+            .catch(error=>{
+                console.log(error);
+            });
             },
-            selectYYQ() {
-                this.videoSrc = "https://gctxyc.liveplay.myqcloud.com/gc/dhyyqst_1_md.m3u8";
-                this.playVideo();
-            },
-            selectZY() {
-                this.videoSrc = "https://gccncc.v.wscdns.com/gc/zyqcdx01_1/index.m3u8";
-                this.playVideo();
-            },
-            selectEMS() {
-                this.videoSrc = "https://gcksc.v.kcdnvip.com/gc/emsarm_1/index.m3u8";
-                this.playVideo();
+            select(location) {
+              console.log('1:'+location);
+              console.log('2:'+this.scenicArea[location])
+			  this.videoSrc=this.scenicArea[location];
+			  this.playVideo();
             },
             selectCCTV13() {
                 this.videoSrc = "http://ivi.bupt.edu.cn/hls/cctv13.m3u8";
@@ -389,7 +424,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
