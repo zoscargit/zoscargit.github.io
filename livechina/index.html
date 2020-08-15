@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://focuson.top/livechina/images/banner.jpg">
 <meta property="article:published_time" content="2020-08-10T14:40:08.000Z">
-<meta property="article:modified_time" content="2020-08-13T13:08:26.923Z">
+<meta property="article:modified_time" content="2020-08-15T08:01:03.511Z">
 <meta property="article:author" content="Lucky！">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://focuson.top/livechina/images/banner.jpg">
@@ -253,6 +253,12 @@
 	  <button @click="select('dsc')">大水车</button>
 	  <button @click="select('ljgc')">丽江古城</button>
 	</div>
+	<div>
+      <span>西藏:</span> 
+      <button @click="select('zfgjt')">珠峰观景台</button>
+      <button @click="select('zfyt')">珠峰远眺</button>
+      <button @click="select('aldq')">阿里地区</button>
+    </div> 
   </div>
   <!-- 央视电视台的流在本地可以播放，部署到pages上后，chrome，firefox就打不开，报错VIDEOJS: ERROR: (CODE:4 MEDIA_ERR_SRC_NOT_SUPPORTED) The media could not be loaded, either because the server or network failed or because the format is not supported.
 哪位大佬知道是什么原因啊，留言帮忙解决下，哈哈-->  
@@ -280,10 +286,10 @@
     <div>
       <input type="text"
              @keyup.enter="selectInput()"
-             ref="inputVideoSrc"
+             @input="inputSrc"
              placeholder="例：https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8"/>
     </div>
-  </div>  
+  </div> 
 </div>
 
 <script>
@@ -332,8 +338,10 @@
               });
               this.videoPlayer.play();
             },
+            inputSrc(event) {
+              this.videoSrc = event.target.value;
+            },
             selectInput() {
-              this.videoSrc = this.$refs.inputVideoSrc.value;
               this.playVideo();
             },
             getScenicArea() {
@@ -457,7 +465,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
