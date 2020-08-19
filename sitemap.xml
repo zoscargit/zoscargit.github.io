@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://focuson.top/spa/index.html</loc>
+    
+    <lastmod>2020-08-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://focuson.top/2020/08/16/%E4%B8%80%E9%A1%B9%E6%96%B0%E7%A0%94%E7%A9%B6%E8%A1%A8%E6%98%8E%E6%96%B0%E5%85%B4%E7%BB%8F%E6%B5%8E%E4%BD%93%E6%AD%A3%E5%9C%A8%E8%BF%BD%E8%B5%B6/</loc>
     
     <lastmod>2020-08-16</lastmod>
@@ -74,7 +81,7 @@
 
   <url>
     <loc>https://focuson.top/</loc>
-    <lastmod>2020-08-16</lastmod>
+    <lastmod>2020-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -82,14 +89,14 @@
   
   <url>
     <loc>https://focuson.top/tags/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/</loc>
-    <lastmod>2020-08-16</lastmod>
+    <lastmod>2020-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://focuson.top/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/</loc>
-    <lastmod>2020-08-16</lastmod>
+    <lastmod>2020-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -98,14 +105,14 @@
   
   <url>
     <loc>https://focuson.top/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2020-08-16</lastmod>
+    <lastmod>2020-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://focuson.top/categories/%E9%87%91%E8%9E%8D/</loc>
-    <lastmod>2020-08-16</lastmod>
+    <lastmod>2020-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
